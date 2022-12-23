@@ -10,13 +10,7 @@ class AccountsController extends Controller
 {
     public function validatePasswordRequest(Request $request)
     {
-        //You can add validation login here
-        $user = DB::table('users')->where('email', '=', $request->email)
-        ->first();
-        //Check if the user exists
-        if (! $user) {
-        return redirect()->back()->withErrors(['email' => trans('User does not exist')]);
-        }
+    
 
         //Create Password Reset Token
         DB::table('password_resets')->insert([
